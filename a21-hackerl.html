@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+
+	// dynamisches Erzeugen von Elementen
+
+	// $('body').html('<canvas></canvas>');
+	// $('<canvas>').appendTo('body');
+	// $('body').append('<canvas>');
+	$( document ).ready( function(){
+	// $('<canvas>')
+	// .css({width:100, height:100})
+	// .attr({width:200, height:200})
+	// .appendTo('body');
+
+	$("#helloCanvas").click(function(){
+			$("canvas").toggle();
+	});
+
+	var hackerl = function(){
+
+			var ctx = $( 'canvas' ).get(0).getContext('2d');
+		ctx.clearRect(0,0,200,200);
+		ctx.fillStyle = 'green';
+		ctx.strokeStyle = 'black';
+		ctx.lineWidth = 1;
+
+		ctx.translate(2,2);
+		ctx.moveTo(5,20);
+		ctx.lineTo(15,35);
+		ctx.lineTo(40,10);
+		ctx.lineTo(45,15);
+		ctx.lineTo(15,42);
+		ctx.lineTo(5,25);
+		
+		ctx.closePath();
+		ctx.stroke();
+
+	}
+	hackerl();
+
+});
+
+
+
+
+	</script>
+	<style>
+	canvas { width: 50px; height: 50px; border: 1px solid #000;}
+	#invis {display: none;}
+	#vis {display:block;}
+	</style>
+</head>
+<body>
+
+<canvas id="helloCanvas" width="50" height="50"></canvas>
+
+</body>
+</html>
